@@ -11,5 +11,13 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    try {
+        res.json(await Product.findById(req.params.id));
+    } catch(error) {
+        res.json({message: error});
+    }
+});
+
 
 module.exports = router;
